@@ -1,5 +1,5 @@
 ---
-title: "assigment_1_ev"
+title: "Assignment 1: Introduction"
 author: "Evie Vermeer"
 date: "2/13/2023"
 output: html_document
@@ -9,22 +9,8 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+### Why are you taking this course? 
+I am taking this course to brush up on my coding and computing skills. As I am getting close to graduating from Bren, I want to be able to functionally apply my understanding of coding (in all types of languages) to potential work environments. In addition to data collection and manipulation tasks, I want to be able to collaborate with core tools like Github, have the background to interpret code tasks, and be able to contribute to projects that require computing backgrounds. 
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+### What is your data science background? 
+Most of my data science background stems from ESM 206. However, I took that course over a year ago and need to brush up on some basic collaboration skills (even using Github, pushing/pulling, etc.). Navigation within Rstudio and use of various packages will be helpful to things to re-learn and add skills within. I have a fair amount of data management and manipulation experience, but that has almost entirely been in Excel, which is obviously a very different tool and interface. 
