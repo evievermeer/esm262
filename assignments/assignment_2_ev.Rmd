@@ -1,0 +1,20 @@
+---
+title: "gas_mileage_calcs"
+author: "Evie Vermeer"
+date: "2/22/2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+
+#auto_fuel_eff = function(crolling=.015, m, g=9.8, V, A, p_air=1.2, cdrag=0.3)  {
+  #result = crolling * m * g * V + (1/2) * A * p_air * cdrag * (V^3)
+
+
+auto_fuel_eff( m=31752,V=c(30,80,120,40,5),A=16)
+```
+
