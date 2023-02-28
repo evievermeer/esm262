@@ -1,0 +1,68 @@
+---
+title: "Computing Crop Yield"
+author: "Evie Vermeer"
+date: "2/27/2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+#make sure you can source function 
+source("~/Bren/Q2/ESM 262 Computing for Environmental Science/esm262/R/crop_yield.R", echo=TRUE)
+```
+
+
+
+```{r}
+
+# generate sample speeds from a distribution
+nsample = 10
+fertilizer = rnorm(mean=5, sd=.5, n=nsample)
+
+# create dataframe of sample
+crop = data.frame(fertilizer=fertilizer)
+
+
+# enter in total precipiation value for function use 
+tp = 20 
+
+
+#define parameters for crop yield function
+crop_yield(fertilizer=fertilizer, tp = tp)
+
+
+# add column for yield 
+crop$yield = NA 
+
+#add values to yield column
+
+for (yr in 1:10) {
+crop$yield [yr] = crop_yield (fertilizer[yr],tp=tp) }
+
+sum(crop$yield)
+
+
+
+```
+
+```{r}
+#create dataframe of sample 
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
