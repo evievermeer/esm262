@@ -7,6 +7,8 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
 ```
 
 
@@ -18,7 +20,6 @@ source("~/Bren/Q2/ESM 262 Computing for Environmental Science/esm262/R/crop_yiel
 
 
 ```{r}
-
 # generate sample speeds from a distribution
 nsample = 10
 fertilizer = rnorm(mean=5, sd=.5, n=nsample)
@@ -26,36 +27,35 @@ fertilizer = rnorm(mean=5, sd=.5, n=nsample)
 # create dataframe of sample
 crop = data.frame(fertilizer=fertilizer)
 
+# check that 
+fertilizer = ifelse(fertilizer < 0, return("fertilizer cannot be negative"), fertilizer)
 
-# enter in total precipiation value for function use 
+
+# enter in total precipitation value for function use 
 tp = 20 
 
 
-#define parameters for crop yield function
 crop_yield(fertilizer=fertilizer, tp = tp)
-
 
 # add column for yield 
 crop$yield = NA 
 
+#define parameters for crop yield function and run loop for ten years.
 #add values to yield column
 
 for (yr in 1:10) {
 crop$yield [yr] = crop_yield (fertilizer[yr],tp=tp) }
 
+
+
 sum(crop$yield)
-
-
 
 ```
 
 ```{r}
-#create dataframe of sample 
-
+ggplot(crop, aes(fertilizer, yield))+geom_point()+labs(y="yield", x="fertilizer")
 
 ```
-
-
 
 
 
