@@ -31,11 +31,8 @@ crop = data.frame(fertilizer=fertilizer)
 # check that 
 fertilizer = ifelse(fertilizer < 0, return("fertilizer cannot be negative"), fertilizer)
 
-
 # enter in total precipitation value for function use 
 tp = 20 
-
-
 
 # add column for yield 
 crop$yield = NA 
@@ -46,13 +43,11 @@ crop$yield = NA
 for (yr in 1:10) {
 crop$yield [yr] = crop_yield (fertilizer[yr],tp=tp) }
 
-
-
 sum(crop$yield)
-
 ```
 
 ```{r}
+#create visualization of results
 ggplot(crop, aes(fertilizer, yield))+geom_point()+labs(y="yield", x="fertilizer")
 
 ```
