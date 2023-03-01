@@ -9,11 +9,12 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
+
 ```
 
 
 ```{r}
-#make sure you can source function 
+# source function
 source("~/Bren/Q2/ESM 262 Computing for Environmental Science/esm262/R/crop_yield.R", echo=TRUE)
 ```
 
@@ -35,7 +36,6 @@ fertilizer = ifelse(fertilizer < 0, return("fertilizer cannot be negative"), fer
 tp = 20 
 
 
-crop_yield(fertilizer=fertilizer, tp = tp)
 
 # add column for yield 
 crop$yield = NA 
