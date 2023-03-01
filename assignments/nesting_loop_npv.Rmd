@@ -7,24 +7,71 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
+
+library(tidyverse)
+library(purrr)
+
 ```
 
-## R Markdown
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+```{r}
+# source npv function 
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+source("~/Bren/Q2/ESM 262 Computing for Environmental Science/examples/ESM_262_Examples/R/compute_NPV.R", echo=TRUE)
 ```
 
-## Including Plots
+```{r}
+# ensure functionality - calculate NPV of $20 in 20 years at a discount rate of 1%
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+compute_NPV(20, discount = .01, time = 20)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r}
+#create dataset for damages
+
+damages = c(25,33,91,24)
+```
+
+
+```{r}
+#create sequence of different discount rates for sensitivity analysis 
+
+discount_rates = seq(from = 0.01, to = 0.04, by = 0.005)
+
+#define no. of years
+
+yr = 10
+
+```
+
+
+# note that the "simple" application doesn't work - why?
+compute_NPV(20, discount=discount_rates, value=damages)
+
+```{r}
+
+#create dataframe to house results. Making the correct number of rows for each value of damages and the correct number of columns for the correct value of discount rates
+
+npvs = data.frame(matrix(nrow=length(damages), ncol=length(discount_rates)))
+
+
+#use a nested loop to populate your dataframe, putting your discount rate results in columns and your damages in rows 
+#this loop begins first but referencing the no. of loops needed to run the full array of discount rates, assessing each one for each value of damages. 
+#it then sources the value to the npvs dataframe, putting damages in rows then discount rates in columns. It calls the compute_npv function for the damages values, the discount rates are entered, as is the object yr to serve as the time input
+
+
+for (i in 1:length(damages)) {
+         for (j in 1:length(discount_rates)) {
+       npvs[i,j]= compute_NPV(value=damages[i],   discount=discount_rates[j],time=yr )
+
+         }
+ }
+
+colnames(npvs)=discount_rates
+rownames(npvs)=damages
+
+
+```
+
+
