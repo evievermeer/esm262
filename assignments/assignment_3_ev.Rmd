@@ -50,9 +50,9 @@ possible_cars = data.frame(name = c("A","B","C","D"),mass=c(10000,65000,38000,50
 ```{r}
 #create speed data sample
 nsample = 200
-mean_speed = 80
+mean_speed = (80*.28)
 
-speeds = rnorm(mean=mean_speed, sd=10, nsample)
+speeds = rnorm(mean=mean_speed, sd=(10*.28), nsample)
 summary(speeds)
 
 
