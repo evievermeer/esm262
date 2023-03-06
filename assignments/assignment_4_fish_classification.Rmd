@@ -7,8 +7,35 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
+library(here)
 ```
 
 This is a rmd to demonstrate the results of running our fish classification function 
+
+read text file into R 
+```{r}
+fish_data = read.delim(here("working","fish.txt"))
+
+fish_vector = as.vector(fish_data)
+
+fish_factors = as.factor(fish_vector)
+
+summary(fish_data)
+
+```
+Source function 
+
+```{r}
+source("~/Bren/Q2/ESM 262 Computing for Environmental Science/esm262/R/fish_classification.R")
+
+fish_classification
+
+```
+
+```{r}
+fish_classification(fish = fish_factors)
+```
+
 
 
