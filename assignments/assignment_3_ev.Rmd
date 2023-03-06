@@ -9,23 +9,17 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 
 #attach packages
-
 library(tidyverse)
 library(purrr)
 library(ggpubr)
 library(ggplot2)
-
 ```
-
-For this assignment you will write a new Rmarkdown document based on the analysis of power required for different *possible_cars* from looping.RMD; You will
 
 * Add an additional super light car with mass 5,000 kg and a surface area 10m2
 
 * Compute the mean and maximum power for Cars A, B, C and for your new car, assuming that average highway speed is 80 km/hr with a standard deviation of 10km/hr;  Use 2 different methods to compute the mean and maximum power for each car type; a) **FOR** loop and b) the **pmap** function from **purr**
 
 * Create two boxplots (one for each method (**FOR** and **pmap**)) that show the range of power consumption (across sampled speeds) for each car type.
-
-Put the Rmarkdown in your assignment github and submit a link on Gauchospace for Assignment 3 when its ready to be graded
 
 ```{r}
 #source function for auto power 
@@ -54,7 +48,7 @@ possible_cars = data.frame(name = c("A","B","C","D"),mass=c(10000,65000,38000,50
 ```
 
 ```{r}
-#create speed data same
+#create speed data sample
 nsample = 200
 mean_speed = 80
 
@@ -79,7 +73,7 @@ powercarspmap = powercarspmap %>% pivot_longer(cols=everything(), names_to="car"
 
 
 ```{r}
-# Before running the for loop, create the data frame that has the # of rows = the # of speed data. The # of columns = the # of cars
+# Before running the for loop, create a data frame that has the # of rows = the # of speed data. The # of columns = the # of cars
 powercarsfor = as.data.frame(matrix(nrow=length(speeds), ncol=nrow(possible_cars)))
 
 #add column names 
@@ -108,23 +102,3 @@ ggarrange(pmap_plot, for_plot, nrow=2)
 
 ```
 
-
-
-
-**Grading Rubric**
-
-
-
-1. Correct R code for adding the super light car (5pts)
-
-2. Values for mean and maximum power for all 4 cars are in expected ranges (remember you are sampling so values will differ slightly) (5pts)
-
-3. Used both methods (**FOR** and **pmap**) correctly (4pts)
-
-4. Boxplots (6pts)
-
-  a) correctly show range of power consumption for each car type for the two methdos
-
-  b) good presentation (e.g axis labels, colors)
-
-5. Good coding practice (e.g Adequate documentation throughout) (5pts)
