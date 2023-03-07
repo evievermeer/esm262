@@ -7,20 +7,18 @@
 #'  d
 
 fish_classification = function(fish) {
-fish = as.factor(fish)
+fish_vect = as.vector((fish[,1]))  
+fish_fact = as.factor(fish_vect)
 
-#' which is the most common
-tmp = which.max(summary(fish))
-most_common = names(summary(fish)[tmp])
+most_common_fish <- names(which.max(summary(fish_fact)))
 
-#'  # which is the most rare
-tmp = which.min(summary(fish))
-rarest = names(summary(fish)[tmp])
+rarest_fish <- names(which.min(summary(fish_fact)))
 
-#'  # number of fish 
-nfish = length(summary(fish)
-#' return result 
-return(list(most_common=most_common,rarest = rarest,nfish = nfish))
+total_number <- sum(summary(fish_fact))
+
+final_list <- c(most_common_fish,rarest_fish,total_number)
+
+return(final_list)
 }
-
+  
 

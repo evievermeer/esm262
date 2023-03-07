@@ -13,15 +13,10 @@ library(here)
 
 This is a rmd to demonstrate the results of running our fish classification function 
 
-read text file into R 
+read in data from txt file
 ```{r}
-fish_data = read.delim(here("working","fish.txt"))
-
-fish_vector = as.vector(fish_data)
-
-fish_factors = as.factor(fish_vector)
-
-summary(fish_data)
+fish <- read.delim(here("Working", "fish.txt"))
+head(fish)
 
 ```
 Source function 
@@ -34,7 +29,7 @@ fish_classification
 ```
 
 ```{r}
-fish_classification(fish = fish_factors)
+fish_classification(fish)
 ```
 
 
