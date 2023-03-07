@@ -15,13 +15,13 @@ This is a rmd to demonstrate the results of running our fish classification func
 
 read in data from txt file
 ```{r}
+#read in data from txt file (function will turn data to factors)
 fish <- read.delim(here("Working", "fish.txt"))
 head(fish)
 
 ```
-Source function 
-
 ```{r}
+#source function
 source("~/Bren/Q2/ESM 262 Computing for Environmental Science/esm262/R/fish_classification.R")
 
 fish_classification
@@ -29,6 +29,7 @@ fish_classification
 ```
 
 ```{r}
+#run fish classification function with fish data
 fish_classification(fish)
 ```
 
