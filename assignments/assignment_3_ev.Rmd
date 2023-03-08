@@ -23,7 +23,7 @@ library(ggplot2)
 
 ```{r}
 #source function for auto power 
-source("~/Bren/Q2/ESM 262 Computing for Environmental Science/examples/ESM_262_Examples/R/autopower.R")
+source("~/Bren/Q2/ESM 262 Computing for Environmental Science/esm262/R/autopower.R")
 
 ```
 
